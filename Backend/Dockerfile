@@ -1,6 +1,5 @@
-FROM public.ecr.aws/lambda/go:1.x
+FROM public.ecr.aws/lambda/go:1.2024.10.04.19 
 
-COPY main.go ${LAMBDA_TASK_ROOT}
-RUN go build -o app main.go
+COPY generate_pass.go ${LAMBDA_TASK_ROOT}
 
-CMD ["app"]
+CMD [ "generate_pass" ]
