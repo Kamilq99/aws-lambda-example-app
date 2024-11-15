@@ -1,0 +1,15 @@
+version: '3.8'
+services:
+  nginx:
+    build:
+      context: ./nginx
+    ports:
+      - "8080:80"
+    depends_on:
+      - lambda
+
+  lambda:
+    build:
+      context: ./lambda
+    ports:
+      - "9000:8080"
